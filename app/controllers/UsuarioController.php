@@ -40,7 +40,7 @@ class UsuarioController extends Usuario implements IApiUsable
     {
         // Buscamos usuario por nombre
         $id = $args['id'];
-        $usuario = Usuario::obtenerUsuario($id);
+        $usuario = Usuario::obtenerUsuarioPorId($id);
         $payload = json_encode($usuario);
 
         $response->getBody()->write($payload);
