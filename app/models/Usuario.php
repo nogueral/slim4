@@ -45,6 +45,8 @@ class Usuario
         return $consulta->fetchObject('Usuario');
     }
 
+    
+
     public static function modificarUsuario()
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();

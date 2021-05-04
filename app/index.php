@@ -9,6 +9,7 @@ use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy;
 use Slim\Routing\RouteContext;
 
+
 require __DIR__ . '/../vendor/autoload.php';
 
 require_once './db/AccesoDatos.php';
@@ -26,6 +27,7 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     $group->get('[/]', \UsuarioController::class . ':TraerTodos');
     $group->get('/{usuario}', \UsuarioController::class . ':TraerUno');
     $group->get('/id/{id}', \UsuarioController::class . ':TraerUnoPorId');
+    $group->get('/pdf/{id}', \UsuarioController::class . ':TraerUnPdfPorId');
     $group->post('[/]', \UsuarioController::class . ':CargarUno');
   });
 

@@ -1,6 +1,7 @@
 <?php
 require_once './models/Usuario.php';
 require_once './interfaces/IApiUsable.php';
+use mikehaertl\wkhtmlto\Pdf;
 
 class UsuarioController extends Usuario implements IApiUsable
 {
@@ -38,7 +39,7 @@ class UsuarioController extends Usuario implements IApiUsable
 
     public function TraerUnoPorId($request, $response, $args)
     {
-        // Buscamos usuario por nombre
+        // Buscamos usuario por id
         $id = $args['id'];
         $usuario = Usuario::obtenerUsuarioPorId($id);
         $payload = json_encode($usuario);
@@ -46,6 +47,33 @@ class UsuarioController extends Usuario implements IApiUsable
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
+    }
+
+    public function TraerUnPdfPorId($request, $response, $args)
+    {
+        $id = $args['id'];
+        $usuario = Usuario::obtenerUsuarioPorId($id);
+        $payload = json_encode($usuario);
+
+        $pdf = new Pdf([
+          'no-outline',        
+          'margin-top'    => 0,
+          'margin-right'  => 0,
+          'margin-bottom' => 0,
+          'margin-left'   => 0,
+          'disable-smart-shrinking',
+         /*  'user-style-sheet' => '/path/to/pdf.css', */
+        ]);
+
+      $pdf->addPage('<html>'.$payload .'</html>');
+      
+      if (!$pdf->send()) {
+          $error = $pdf->getError();
+      }
+      $response->write($pdf->send());
+
+        return $response
+          ->withHeader('Content-Type', 'application/pdf');
     }
 
     public function TraerTodos($request, $response, $args)
