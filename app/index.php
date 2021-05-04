@@ -13,7 +13,6 @@ require __DIR__ . '/../vendor/autoload.php';
 
 require_once './db/AccesoDatos.php';
 // require_once './middlewares/Logger.php';
-
 require_once './controllers/UsuarioController.php';
 
 // Instantiate App
@@ -21,7 +20,6 @@ $app = AppFactory::create();
 
 // Add error middleware
 $app->addErrorMiddleware(true, true, true);
-
 
 // Routes
 $app->group('/usuarios', function (RouteCollectorProxy $group) {
@@ -34,7 +32,6 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
 $app->get('[/]', function (Request $request, Response $response) {    
     $response->getBody()->write("Slim Framework 4 PHP");
     return $response;
-
 });
 
 $app->run();
