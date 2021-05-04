@@ -69,7 +69,7 @@ class UsuarioController extends Usuario implements IApiUsable
     $pdf->addPage('<html>' . $payload . '</html>');
 
     return $response
-      ->write($pdf->send('report.pdf'))
+      ->write($pdf)
       ->withHeader('Content-Type', 'application/pdf');
   }
 
