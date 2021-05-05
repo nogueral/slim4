@@ -8,6 +8,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy;
 use Slim\Routing\RouteContext;
+use Slim\Http\Stream;
 
 
 require __DIR__ . '/../vendor/autoload.php';

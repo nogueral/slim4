@@ -1,8 +1,11 @@
 <?php
 require_once './models/Usuario.php';
 require_once './interfaces/IApiUsable.php';
+require_once __DIR__ . '/../vendor/tecnickcom/tcpdf/tcpdf.php';
 
+use Slim\Http\Stream;
 use mikehaertl\wkhtmlto\Pdf;
+
 
 class UsuarioController extends Usuario implements IApiUsable
 {
@@ -56,20 +59,25 @@ class UsuarioController extends Usuario implements IApiUsable
     $usuario = Usuario::obtenerUsuarioPorId($id);
     $payload = json_encode($usuario);
 
-    $pdf = new Pdf([
-      'no-outline',
-      'margin-top'    => 0,
-      'margin-right'  => 0,
-      'margin-bottom' => 0,
-      'margin-left'   => 0,
-      'disable-smart-shrinking',
-      /*  'user-style-sheet' => '/path/to/pdf.css', */
-    ]);
 
-    $pdf->addPage('<html>' . $payload . '</html>');
-    $pdf->saveAs('report.pdf');
+    $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false, true);
 
-    return $response->download('report.pdf')->withHeader('Content-Type', 'application/pdf');
+    $pdf->addPage();
+    $pdf->write(0, 'My Test');
+
+    $content = $pdf->output('doc.pdf', 'S');
+    $fileName = 'example.pdf';
+
+    $response = $response->withType('application/pdf');
+    $response = $response->withHeader('Content-Disposition', sprintf('attachment; filename="%s"', $fileName));
+
+    $stream = fopen('php://memory', 'w+');
+    fwrite($stream, $content);
+    rewind($stream);
+
+    $response->getBody()->write(fread($stream, (int)fstat($stream)['size']));
+
+    return $response;
   }
 
   public function TraerTodos($request, $response, $args)
