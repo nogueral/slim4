@@ -8,8 +8,6 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy;
 use Slim\Routing\RouteContext;
-use Slim\Http\Stream;
-
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -31,8 +29,6 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     $group->get('/pdf/{id}', \UsuarioController::class . ':TraerUnPdfPorId');
     $group->post('[/]', \UsuarioController::class . ':CargarUno');
   });
-
-  
 
 $app->get('[/]', function (Request $request, Response $response) {    
     $response->getBody()->write("Slim Framework 4 PHP");
