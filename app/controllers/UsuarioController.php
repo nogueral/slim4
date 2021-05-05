@@ -68,8 +68,7 @@ class UsuarioController extends Usuario implements IApiUsable
     $content = $pdf->output('doc.pdf', 'S');
     $fileName = 'example.pdf';
 
-    $response = $response->withType('application/pdf');
-    $response = $response->withHeader('Content-Disposition', sprintf('attachment; filename="%s"', $fileName));
+    $response = $response->withHeader('Content-Disposition','application/pdf', sprintf('attachment; filename="%s"', $fileName));
 
     $stream = fopen('php://memory', 'w+');
     fwrite($stream, $content);
