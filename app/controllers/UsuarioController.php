@@ -58,10 +58,7 @@ class UsuarioController extends Usuario implements IApiUsable
   {
     $id = $args['id'];
     $usuario = Usuario::obtenerUsuarioPorId($id);
-    $html='<h1>Descarga de PDF - Slim Framework 4 - Heroku MYSQL</h1>
-    
-    <h2>Descarga de información de usuarios</h2>
-    
+    $html='<h1>Descarga de PDF - Slim Framework 4 - Heroku MYSQL</h1> <h2>Descarga de información de usuarios</h2>
     <ul>
         <li> ID: ' . $usuario->id . '</li>
         <li> Usuario: ' . $usuario->usuario . '</li>
@@ -71,17 +68,16 @@ class UsuarioController extends Usuario implements IApiUsable
     $dompdf->loadHtml('<h4>' . $html . '</h4>');
     $dompdf->setPaper('A4', 'landscape');
     $dompdf->render();
-
-    $filename = 'pdftest_' . $id . '.pdf';
-    $str = $dompdf->output();
-    $length = mb_strlen($str, '8bit');
-    $response->getBody()->write($str);
+    $archivo = 'pdftest_' . $id . '.pdf';
+    $string = $dompdf->output();
+    $lengthString = mb_strlen($string, '8bit');
+    $response->getBody()->write($string);
 
     return $response->withHeader('Cache-Control', 'private')
       ->withHeader('Content-type', 'application/pdf')
-      ->withHeader('Content-Length', $length)
-      ->withHeader('Content-Disposition', 'attachment;  filename=' . $filename)
-      ->withHeader('Accept-Ranges', $length);
+      ->withHeader('Content-Length', $lengthString)
+      ->withHeader('Content-Disposition', 'attachment;  filename=' . $archivo)
+      ->withHeader('Accept-Ranges', $lengthString);
   }
 
   public function TraerTodos($request, $response, $args)
