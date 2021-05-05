@@ -59,8 +59,17 @@ class UsuarioController extends Usuario implements IApiUsable
     $id = $args['id'];
     $usuario = Usuario::obtenerUsuarioPorId($id);
     $payload = json_encode($usuario);
+    $html='<h1>Descarga de PDF - Slim Framework 4 - Heroku MYSQL</h1>
+    
+    <h2>Descarga de información de usuarios</h2>
+    
+    <ol>
+        <li>' . $usuario['id'] . '</li>
+        <li>' . $usuario['usuario'] . '</li>
+        <li>' . $usuario['clave'] . '</li>
+    </ol>';        
     $dompdf = new Dompdf();
-    $dompdf->loadHtml('<h4>' . $payload . '</h4>');
+    $dompdf->loadHtml('<h4>' . $html . '</h4>');
     $dompdf->setPaper('A4', 'landscape');
     $dompdf->render();
 
