@@ -64,9 +64,9 @@ class UsuarioController extends Usuario implements IApiUsable
     <h2>Descarga de información de usuarios</h2>
     
     <ol>
-        <li>' . $usuario['id'] . '</li>
-        <li>' . $usuario['usuario'] . '</li>
-        <li>' . $usuario['clave'] . '</li>
+        <li>' . $usuario->id . '</li>
+        <li>' . $usuario->usuario . '</li>
+        <li>' . $usuario->clave . '</li>
     </ol>';        
     $dompdf = new Dompdf();
     $dompdf->loadHtml('<h4>' . $html . '</h4>');
