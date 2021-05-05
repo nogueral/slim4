@@ -5,6 +5,7 @@ require_once __DIR__ . '/../../vendor/tecnickcom/tcpdf/tcpdf.php';
 
 use Slim\Http\Stream;
 use mikehaertl\wkhtmlto\Pdf;
+use Dompdf\Dompdf;
 
 
 class UsuarioController extends Usuario implements IApiUsable
@@ -58,25 +59,20 @@ class UsuarioController extends Usuario implements IApiUsable
     $id = $args['id'];
     $usuario = Usuario::obtenerUsuarioPorId($id);
     $payload = json_encode($usuario);
+    $dompdf = new Dompdf();
+    $dompdf->loadHtml('hello world');
+    $dompdf->setPaper('A4', 'landscape');
+    $dompdf->render();
 
-
-    $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false, true);
-
-    $pdf->addPage();
-    $pdf->write(0, 'My Test');
-
-    $content = $pdf->output('doc.pdf', 'S');
-    $fileName = 'example.pdf';
-
-    $response = $response->withHeader('Content-Disposition','application/pdf', sprintf('attachment; filename="%s"', $fileName));
-
-    $stream = fopen('php://memory', 'w+');
-    fwrite($stream, $content);
-    rewind($stream);
-
-    $response->getBody()->write(fread($stream, (int)fstat($stream)['size']));
-
-    return $response;
+    $filename = 'pdftest_' . $id . '.pdf';
+     $str = $dompdf->output();
+     $length = mb_strlen($str, '8bit');
+     return $response->withHeader('Cache-Control', 'private')
+     ->withHeader('Content-type', 'application/pdf')
+     ->withHeader('Content-Length', $length)
+     ->withHeader('Content-Disposition', 'attachment;  filename=' . $filename)
+     ->withHeader('Accept-Ranges', $length)
+     ->write($str);
   }
 
   public function TraerTodos($request, $response, $args)
