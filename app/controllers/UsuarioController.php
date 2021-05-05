@@ -60,7 +60,7 @@ class UsuarioController extends Usuario implements IApiUsable
     $usuario = Usuario::obtenerUsuarioPorId($id);
     $payload = json_encode($usuario);
     $dompdf = new Dompdf();
-    $dompdf->loadHtml('hello world');
+    $dompdf->loadHtml('<h4>' . $payload . '</h4>');
     $dompdf->setPaper('A4', 'landscape');
     $dompdf->render();
 
