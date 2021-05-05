@@ -1,10 +1,7 @@
 <?php
 require_once './models/Usuario.php';
 require_once './interfaces/IApiUsable.php';
-require_once __DIR__ . '/../../vendor/tecnickcom/tcpdf/tcpdf.php';
 
-use Slim\Http\Stream;
-use mikehaertl\wkhtmlto\Pdf;
 use Dompdf\Dompdf;
 
 
