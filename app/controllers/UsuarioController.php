@@ -65,14 +65,15 @@ class UsuarioController extends Usuario implements IApiUsable
     $dompdf->render();
 
     $filename = 'pdftest_' . $id . '.pdf';
-     $str = $dompdf->output();
-     $length = mb_strlen($str, '8bit');
-     return $response->withHeader('Cache-Control', 'private')
-     ->withHeader('Content-type', 'application/pdf')
-     ->withHeader('Content-Length', $length)
-     ->withHeader('Content-Disposition', 'attachment;  filename=' . $filename)
-     ->withHeader('Accept-Ranges', $length)
-     ->write($str);
+    $str = $dompdf->output();
+    $length = mb_strlen($str, '8bit');
+    $response->getBody()->write($str);
+
+    return $response->withHeader('Cache-Control', 'private')
+      ->withHeader('Content-type', 'application/pdf')
+      ->withHeader('Content-Length', $length)
+      ->withHeader('Content-Disposition', 'attachment;  filename=' . $filename)
+      ->withHeader('Accept-Ranges', $length);
   }
 
   public function TraerTodos($request, $response, $args)
