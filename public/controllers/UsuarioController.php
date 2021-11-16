@@ -10,11 +10,13 @@ class UsuarioController extends Usuario implements IApiUsable
 
         $usuario = $parametros['usuario'];
         $clave = $parametros['clave'];
+        $tipo = $parametros['tipo'];
 
         // Creamos el usuario
         $usr = new Usuario();
         $usr->usuario = $usuario;
         $usr->clave = $clave;
+        $usr->tipo = $tipo;
         $usr->crearUsuario();
 
         $payload = json_encode(array("mensaje" => "Usuario creado con exito"));
@@ -49,14 +51,17 @@ class UsuarioController extends Usuario implements IApiUsable
     public function ModificarUno($request, $response, $args)
     {
         $parametros = $request->getParsedBody();
+        //var_dump($parametros);
 
         $usuario = $parametros['usuario'];
         $clave = $parametros['clave'];
+        $tipo = $parametros['tipo'];
 
         // Creamos el usuario
         $usr = new Usuario();
         $usr->usuario = $usuario;
         $usr->clave = $clave;
+        $usr->tipo = $tipo;
         $usr->id = $args['id'];
         $columnas = $usr->modificarUsuario();
 
@@ -73,9 +78,6 @@ class UsuarioController extends Usuario implements IApiUsable
 
     public function BorrarUno($request, $response, $args)
     {
-        //$parametros = $request->getParsedBody();
-
-        //$usuarioId = $parametros['usuarioId'];
         $usuarioId = $args['id'];
 
         $usuario = Usuario::obtenerUsuario($usuarioId);
@@ -99,22 +101,22 @@ class UsuarioController extends Usuario implements IApiUsable
 
       $usuario = $parametros['usuario'];
       $clave = $parametros['clave'];
-      $usr = new Usuario();
-      $usr->usuario = $usuario;
-      $usr->clave = $clave;
+      $payload = json_encode(array("mensaje" => "Error de autenticacion"));
 
-      $auxUser = Usuario::obtenerUsuario($usr->usuario);
+      $auxUser = Usuario::obtenerUsuario($usuario);
 
-      $retorno = $usr->Equals($auxUser);
+      if($auxUser != false){
 
+        $validar = password_verify($clave, $auxUser->clave);
+        //var_dump($validar);
+        if($validar){
 
-      if($retorno == 1){
-        $payload = json_encode(array("mensaje" => "Login exitoso"));
-      } else if($retorno == 0){
-        $payload = json_encode(array("mensaje" => "Error en la clave"));
-      } else{
-        $payload = json_encode(array("mensaje" => "Usuario incorrecto"));
-      }
+          $datos = array('usuario' => $usuario, 'clave' => $auxUser->clave, 'tipo' => $auxUser->tipo);
+          $token = AutentificadorJWT::CrearToken($datos);
+          $payload = json_encode(array("jwt" => $token, "response" => "ok", "perfil de usuario" => $auxUser->tipo));
+        }
+
+      };
 
 
       $response->getBody()->write($payload);

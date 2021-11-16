@@ -1,0 +1,450 @@
+{
+	"info": {
+		"_postman_id": "adfc0879-1c00-446a-93cc-dd5a67578a86",
+		"name": "2doparcial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1 - verifico usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario",
+							"value": "leandro@leandro.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 - alta cripto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzcwMTI1NDcsImV4cCI6MTYzNzA3MjU0NywiYXVkIjoiNDhmYWJjNmQ3MGQwNjVkNzYwYWRlODcxYzI2MDY4NDRmMjZjYzFhMyIsImRhdGEiOnsidXN1YXJpbyI6ImxlYW5kcm9AbGVhbmRyby5jb20iLCJjbGF2ZSI6IiQyeSQxMCRkU1NqVDVEcFlRTUxUSTY1akVTT0R1bXpJWnJEMEVYOGlUVmdNcDNhc29rbkJQc3lWMFVtcSIsInRpcG8iOiJhZG1pbiJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.Mkoo8quM-7RGm2eRuxXtE067ASuWUwHuTx_BKHQkqS4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Argencoin",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "88",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/nico/Desktop/back.jpg"
+						},
+						{
+							"key": "nacionalidad",
+							"value": "Argentina",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/criptomonedas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"criptomonedas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 - traer todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/public/criptomonedas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"criptomonedas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4 - listar por nacionalidad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/public/criptomonedas/nacionalidad/argentina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"criptomonedas",
+						"nacionalidad",
+						"argentina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 - traer cripto por ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzcwMTI1NDcsImV4cCI6MTYzNzA3MjU0NywiYXVkIjoiNDhmYWJjNmQ3MGQwNjVkNzYwYWRlODcxYzI2MDY4NDRmMjZjYzFhMyIsImRhdGEiOnsidXN1YXJpbyI6ImxlYW5kcm9AbGVhbmRyby5jb20iLCJjbGF2ZSI6IiQyeSQxMCRkU1NqVDVEcFlRTUxUSTY1akVTT0R1bXpJWnJEMEVYOGlUVmdNcDNhc29rbkJQc3lWMFVtcSIsInRpcG8iOiJhZG1pbiJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.Mkoo8quM-7RGm2eRuxXtE067ASuWUwHuTx_BKHQkqS4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Dogecoin",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "precio",
+							"value": "51",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						},
+						{
+							"key": "nacionalidad",
+							"value": "Francia",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/criptomonedas/id/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"criptomonedas",
+						"id",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6 - Alta Venta Cripto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzcwMTI1NDcsImV4cCI6MTYzNzA3MjU0NywiYXVkIjoiNDhmYWJjNmQ3MGQwNjVkNzYwYWRlODcxYzI2MDY4NDRmMjZjYzFhMyIsImRhdGEiOnsidXN1YXJpbyI6ImxlYW5kcm9AbGVhbmRyby5jb20iLCJjbGF2ZSI6IiQyeSQxMCRkU1NqVDVEcFlRTUxUSTY1akVTT0R1bXpJWnJEMEVYOGlUVmdNcDNhc29rbkJQc3lWMFVtcSIsInRpcG8iOiJhZG1pbiJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.Mkoo8quM-7RGm2eRuxXtE067ASuWUwHuTx_BKHQkqS4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idUser",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idCripto",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/nico/Desktop/back.jpg"
+						},
+						{
+							"key": "nombre",
+							"value": "Argencoin",
+							"type": "text"
+						},
+						{
+							"key": "cliente",
+							"value": "Leandro",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/ventaCripto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"ventaCripto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7 - traer ventas por fecha",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzY5ODQyMzQsImV4cCI6MTYzNzA0NDIzNCwiYXVkIjoiNDhmYWJjNmQ3MGQwNjVkNzYwYWRlODcxYzI2MDY4NDRmMjZjYzFhMyIsImRhdGEiOnsidXN1YXJpbyI6ImxlYW5kcm9AbGVhbmRyby5jb20iLCJjbGF2ZSI6IiQyeSQxMCRkU1NqVDVEcFlRTUxUSTY1akVTT0R1bXpJWnJEMEVYOGlUVmdNcDNhc29rbkJQc3lWMFVtcSIsInRpcG8iOiJhZG1pbiJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.fIIRIzRWnkS0FJuRd9gLCWtFxDkch8ZVnTkiwqW04kg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:666/public/ventaCripto/ventas/2021-06-10/2021-06-13/alemania",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"ventaCripto",
+						"ventas",
+						"2021-06-10",
+						"2021-06-13",
+						"alemania"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8 - usuarios que compraron la moneda ethereum",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzY5ODQyMzQsImV4cCI6MTYzNzA0NDIzNCwiYXVkIjoiNDhmYWJjNmQ3MGQwNjVkNzYwYWRlODcxYzI2MDY4NDRmMjZjYzFhMyIsImRhdGEiOnsidXN1YXJpbyI6ImxlYW5kcm9AbGVhbmRyby5jb20iLCJjbGF2ZSI6IiQyeSQxMCRkU1NqVDVEcFlRTUxUSTY1akVTT0R1bXpJWnJEMEVYOGlUVmdNcDNhc29rbkJQc3lWMFVtcSIsInRpcG8iOiJhZG1pbiJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.fIIRIzRWnkS0FJuRd9gLCWtFxDkch8ZVnTkiwqW04kg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:666/public/ventaCripto/usuarios/Ethereum",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"ventaCripto",
+						"usuarios",
+						"Ethereum"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9 - delete cripto",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzY5ODQyMzQsImV4cCI6MTYzNzA0NDIzNCwiYXVkIjoiNDhmYWJjNmQ3MGQwNjVkNzYwYWRlODcxYzI2MDY4NDRmMjZjYzFhMyIsImRhdGEiOnsidXN1YXJpbyI6ImxlYW5kcm9AbGVhbmRyby5jb20iLCJjbGF2ZSI6IiQyeSQxMCRkU1NqVDVEcFlRTUxUSTY1akVTT0R1bXpJWnJEMEVYOGlUVmdNcDNhc29rbkJQc3lWMFVtcSIsInRpcG8iOiJhZG1pbiJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.fIIRIzRWnkS0FJuRd9gLCWtFxDkch8ZVnTkiwqW04kg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Dogecoin",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "precio",
+							"value": "51",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/nico/Desktop/back.jpg",
+							"disabled": true
+						},
+						{
+							"key": "nacionalidad",
+							"value": "Francia",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/criptomonedas/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"criptomonedas",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10 - modificar cripto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzY5ODQyMzQsImV4cCI6MTYzNzA0NDIzNCwiYXVkIjoiNDhmYWJjNmQ3MGQwNjVkNzYwYWRlODcxYzI2MDY4NDRmMjZjYzFhMyIsImRhdGEiOnsidXN1YXJpbyI6ImxlYW5kcm9AbGVhbmRyby5jb20iLCJjbGF2ZSI6IiQyeSQxMCRkU1NqVDVEcFlRTUxUSTY1akVTT0R1bXpJWnJEMEVYOGlUVmdNcDNhc29rbkJQc3lWMFVtcSIsInRpcG8iOiJhZG1pbiJ9LCJhcHAiOiJMYSBDb21hbmRhIn0.fIIRIzRWnkS0FJuRd9gLCWtFxDkch8ZVnTkiwqW04kg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "Argencoin",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "51",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/nico/Desktop/back.jpg"
+						},
+						{
+							"key": "nacionalidad",
+							"value": "Argentina",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/criptomonedas/modificar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"criptomonedas",
+						"modificar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11 - generar pdf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/public/ventaCripto/traerTodos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"ventaCripto",
+						"traerTodos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
