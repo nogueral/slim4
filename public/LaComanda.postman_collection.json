@@ -1,0 +1,609 @@
+{
+	"info": {
+		"_postman_id": "76df44a2-f1c8-4041-904b-8a308c861a42",
+		"name": "LaComanda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "alta-usuarios02",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario",
+							"value": "juan@juan.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "mozo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta-usuarios01",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario",
+							"value": "leandro@leandro.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "holamundo",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "administrador",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta-usuarios03",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario",
+							"value": "jose@jose.com",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "jose03",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "bartender",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar-usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/public/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta-mesas01",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idMesa",
+							"value": "25563",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "comiendo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/mesas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"mesas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta-mesas02",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idMesa",
+							"value": "28922",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "cerrada",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/mesas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"mesas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar-mesas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idMesa",
+							"value": "28",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "estado",
+							"value": "cerrada",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/mesas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"mesas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta-productos01",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigo",
+							"value": "777555",
+							"type": "text"
+						},
+						{
+							"key": "producto",
+							"value": "pizza",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "600",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "cocinero",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta-productos02",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigo",
+							"value": "888666",
+							"type": "text"
+						},
+						{
+							"key": "producto",
+							"value": "pinta ipa",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "250",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "cervecero",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar-productos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigo",
+							"value": "888666",
+							"type": "text"
+						},
+						{
+							"key": "producto",
+							"value": "pinta ipa",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "250",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "perfil",
+							"value": "cervecero",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta-pedidos01",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idMesa",
+							"value": "25563",
+							"type": "text"
+						},
+						{
+							"key": "producto",
+							"value": "pizza",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "cocinero",
+							"type": "text"
+						},
+						{
+							"key": "cliente",
+							"value": "juan perez",
+							"type": "text"
+						},
+						{
+							"key": "nroPedido",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "abierto",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta-pedidos02",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idMesa",
+							"value": "25563",
+							"type": "text"
+						},
+						{
+							"key": "producto",
+							"value": "empanadas",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "cocina",
+							"type": "text"
+						},
+						{
+							"key": "cliente",
+							"value": "jose lopez",
+							"type": "text"
+						},
+						{
+							"key": "nroPedido",
+							"value": "123458",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "abierto",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/nico/Desktop/front.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alta-pedidos03",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idMesa",
+							"value": "25563",
+							"type": "text"
+						},
+						{
+							"key": "producto",
+							"value": "cerveza",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "cervecero",
+							"type": "text"
+						},
+						{
+							"key": "cliente",
+							"value": "jose lopez",
+							"type": "text"
+						},
+						{
+							"key": "nroPedido",
+							"value": "123459",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "abierto",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/public/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar-pedidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/public/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"public",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
